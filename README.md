@@ -110,4 +110,4 @@ PHP
 
 For support contact:
 
-support@premiumshop.com
+support@samtics.com
