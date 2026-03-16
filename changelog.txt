@@ -1,0 +1,38 @@
+PremiumShop Changelog
+
+Version 1.0
+Release Date: 2026
+
+Initial release
+
+Features
+- Responsive Bootstrap 5 layout
+- Homepage with hero carousel
+- Product listing UI
+- Product detail page
+- Shopping cart interface
+- Checkout page
+- Wishlist UI
+- Customer profile page
+- Category navigation system
+- Quick view modal
+- Newsletter subscription UI
+- Dark mode toggle
+- Theme color switcher
+- Animated sections using AOS
+- Mobile responsive navigation
+- Mini cart dropdown
+- Admin dashboard interface (Plus version)
+
+Assets
+- Product images
+- Category images
+- UI icons
+- Carousel banners
+
+Dependencies
+- Bootstrap 5
+- Font Awesome
+- jQuery
+- AOS animation library
+- Google Fonts (Inter)

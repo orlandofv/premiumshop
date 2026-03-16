@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PremiumShop Documentation</title>
+  <meta name="description" content="PremiumShop documentation with English and Portuguese tabs." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#2c7be0;
+      --primary-dark:#1b5fc1;
+      --secondary:#0f172a;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --success:#16a34a;
+      --warning:#f59e0b;
+      --danger:#dc2626;
+      --code-bg:#0f172a;
+      --code-text:#e2e8f0;
+      --shadow:0 10px 30px rgba(15, 23, 42, .08);
+      --radius:18px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:var(--bg);
+      color:#1e293b;
+      line-height:1.65;
+    }
+
+    .app-shell{
+      min-height:100vh;
+    }
+
+    .sidebar{
+      background:linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color:#fff;
+      min-height:100vh;
+      padding:28px 22px;
+      position:sticky;
+      top:0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:22px;
+    }
+
+    .brand-badge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--primary), #60a5fa);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 12px 24px rgba(44,123,224,.25);
+    }
+
+    .brand h1{
+      font-size:1.15rem;
+      margin:0;
+      font-weight:800;
+      letter-spacing:-0.02em;
+    }
+
+    .brand p{
+      margin:2px 0 0;
+      color:#cbd5e1;
+      font-size:.88rem;
+    }
+
+    .sidebar .nav-label{
+      color:#94a3b8;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin:24px 0 10px;
+      font-weight:700;
+    }
+
+    .sidebar a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#dbeafe;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      margin-bottom:6px;
+      transition:.2s ease;
+      font-size:.95rem;
+    }
+
+    .sidebar a:hover{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      transform:translateX(2px);
+    }
+
+    .sidebar .small-note{
+      margin-top:26px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      color:#cbd5e1;
+      font-size:.9rem;
+    }
+
+    .content{
+      padding:28px;
+    }
+
+    .hero-card{
+      background:
+        radial-gradient(circle at top right, rgba(96,165,250,.25), transparent 26%),
+        linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      margin-bottom:22px;
+    }
+
+    .hero-top{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background:#eff6ff;
+      color:var(--primary-dark);
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .hero-card h2{
+      margin:0 0 8px;
+      font-size:2rem;
+      line-height:1.15;
+      letter-spacing:-0.03em;
+      color:#0f172a;
+      font-weight:800;
+    }
+
+    .hero-card p{
+      max-width:780px;
+      color:#475569;
+      margin:0;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn-soft{
+      border:none;
+      background:#eff6ff;
+      color:var(--primary-dark);
+      font-weight:700;
+      border-radius:12px;
+      padding:10px 16px;
+    }
+
+    .doc-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .doc-card-body{
+      padding:28px;
+    }
+
+    .nav-tabs{
+      border-bottom:1px solid var(--border);
+      gap:10px;
+    }
+
+    .nav-tabs .nav-link{
+      border:none;
+      color:#475569;
+      font-weight:700;
+      border-radius:12px 12px 0 0;
+      padding:12px 18px;
+    }
+
+    .nav-tabs .nav-link.active{
+      color:var(--primary);
+      background:#eff6ff;
+    }
+
+    .utility-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      align-items:center;
+      margin:18px 0 24px;
+    }
+
+    .search-wrap{
+      position:relative;
+      flex:1 1 320px;
+      max-width:460px;
+    }
+
+    .search-input{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px 14px 12px 42px;
+      font-size:.95rem;
+      background:#fff;
+      outline:none;
+    }
+
+    .search-input:focus{
+      border-color:#93c5fd;
+      box-shadow:0 0 0 4px rgba(59,130,246,.12);
+    }
+
+    .search-icon{
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#94a3b8;
+    }
+
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color:#334155;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.85rem;
+      font-weight:600;
+    }
+
+    .toc a:hover{
+      color:var(--primary);
+      border-color:#bfdbfe;
+      background:#eff6ff;
+    }
+
+    .section{
+      margin-bottom:34px;
+      scroll-margin-top:24px;
+    }
+
+    .section h3{
+      font-size:1.45rem;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      color:#0f172a;
+      margin-bottom:8px;
+    }
+
+    .section h4{
+      font-size:1.05rem;
+      font-weight:700;
+      color:#0f172a;
+      margin-top:18px;
+      margin-bottom:10px;
+    }
+
+    .section p{
+      color:#475569;
+      margin-bottom:12px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .info-box{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .info-box strong{
+      color:#0f172a;
+    }
+
+    .feature-list,
+    .check-list{
+      padding-left:0;
+      list-style:none;
+      margin:0;
+    }
+
+    .feature-list li,
+    .check-list li{
+      position:relative;
+      padding-left:28px;
+      margin-bottom:10px;
+      color:#334155;
+    }
+
+    .feature-list li::before,
+    .check-list li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--success);
+      font-weight:800;
+    }
+
+    .badge-soft{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f1f5f9;
+      color:#334155;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .doc-table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+
+    .doc-table th,
+    .doc-table td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+      font-size:.95rem;
+    }
+
+    .doc-table th{
+      background:#f8fafc;
+      font-weight:700;
+      color:#0f172a;
+    }
+
+    .doc-table tr:last-child td{
+      border-bottom:none;
+    }
+
+    pre{
+      position:relative;
+      background:var(--code-bg);
+      color:var(--code-text);
+      padding:18px;
+      border-radius:18px;
+      overflow:auto;
+      margin:14px 0;
+      box-shadow:0 14px 28px rgba(15,23,42,.16);
+    }
+
+    code{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size:.92rem;
+    }
+
+    .copy-btn{
+      position:absolute;
+      top:12px;
+      right:12px;
+      border:none;
+      background:#1e293b;
+      color:#fff;
+      font-size:.78rem;
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+
+    .copy-btn:hover{
+      background:#334155;
+    }
+
+    .note{
+      border-left:4px solid var(--primary);
+      background:#eff6ff;
+      color:#1e3a8a;
+      padding:14px 16px;
+      border-radius:12px;
+      margin:14px 0;
+    }
+
+    .warn{
+      border-left:4px solid var(--warning);
+      background:#fffbeb;
+      color:#92400e;
+      padding:14px 16px;
+      border-radius:12px;
+      margin:14px 0;
+    }
+
+    .footer-note{
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:#64748b;
+      font-size:.92rem;
+    }
+
+    .hidden-search{
+      display:none !important;
+    }
+
+    @media (max-width: 991.98px){
+      .sidebar{
+        min-height:auto;
+        position:relative;
+      }
+
+      .content{
+        padding:18px;
+      }
+
+      .doc-card-body,
+      .hero-card{
+        padding:20px;
+      }
+
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card h2{
+        font-size:1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid app-shell">
+    <div class="row">
+      <aside class="col-lg-3 sidebar">
+        <div class="brand">
+          <div class="brand-badge">PS</div>
+          <div>
+            <h1>PremiumShop</h1>
+            <p>Documentation v1.0</p>
+          </div>
+        </div>
+
+        <div class="nav-label">Contents</div>
+        <a href="#overview">Overview / Visão Geral</a>
+        <a href="#variants">Variants / Versões</a>
+        <a href="#features">Features / Funcionalidades</a>
+        <a href="#design-system">Design System</a>
+        <a href="#components">Components / Componentes</a>
+        <a href="#structure">File Structure</a>
+        <a href="#installation">Installation / Instalação</a>
+        <a href="#customization">Customization / Customização</a>
+        <a href="#testing">Testing / Testes</a>
+        <a href="#deployment">Deployment / Publicação</a>
+        <a href="#license">License / Licença</a>
+
+        <div class="small-note">
+          <strong>Tip:</strong> keep this page inside
+          <code style="color:#fff;">documentation/index.html</code>
+          so buyers can open it quickly after download.
+        </div>
+      </aside>
+
+      <main class="col-lg-9 content">
+        <section class="hero-card">
+          <div class="hero-top">
+            <div>
+              <span class="eyebrow">Premium HTML Template Documentation</span>
+              <h2>PremiumShop Documentation.</h2>
+              <p>
+                This guide is designed for marketplaces and end users. It explains the PremiumShop template structure,
+                customization flow, installation steps, variants, UI components, and deployment notes in both English and Portuguese.
+              </p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary rounded-3 px-4 py-2 fw-semibold" onclick="window.print()">Print</button>
+              <a class="btn btn-soft" href="#installation">Quick Start</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-card">
+          <div class="doc-card-body">
+            <ul class="nav nav-tabs" id="docTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="en-tab" data-bs-toggle="tab" data-bs-target="#tab-en" type="button" role="tab" aria-controls="tab-en" aria-selected="true">
+                  English
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pt-tab" data-bs-toggle="tab" data-bs-target="#tab-pt" type="button" role="tab" aria-controls="tab-pt" aria-selected="false">
+                  Português
+                </button>
+              </li>
+            </ul>
+
+            <div class="utility-bar">
+              <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input id="docSearch" class="search-input" type="text" placeholder="Search this documentation..." />
+              </div>
+              <div class="toc">
+                <a href="#overview">Overview</a>
+                <a href="#structure">Structure</a>
+                <a href="#installation">Install</a>
+                <a href="#customization">Customize</a>
+                <a href="#deployment">Deploy</a>
+              </div>
+            </div>
+
+            <div class="tab-content pt-2">
+              <div class="tab-pane fade show active" id="tab-en" role="tabpanel" aria-labelledby="en-tab">
+
+                <section class="section searchable" id="overview">
+                  <h3>1. Overview</h3>
+                  <p>
+                    PremiumShop is a responsive e-commerce HTML template created for online stores, modern product catalogs,
+                    and commercial storefronts. It combines a clean shopping UI with reusable pages and optional dashboard screens.
+                  </p>
+                  <div class="grid-2">
+                    <div class="info-box">
+                      <strong>Core purpose</strong>
+                      <p class="mb-0">Launch a modern storefront quickly with a polished buyer experience.</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Best for</strong>
+                      <p class="mb-0">HTML template sales, UI kits, startup demos, SaaS commerce fronts, and backend integration projects.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="variants">
+                  <h3>2. Variants</h3>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Variant</th>
+                        <th>Description</th>
+                        <th>Recommended Use</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Standard</strong></td>
+                        <td>Core storefront pages for simple e-commerce use cases.</td>
+                        <td>Small stores, quick launches, starter demos.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Professional</strong></td>
+                        <td>Extended storefront with additional utility pages such as 403, 404, and 500.</td>
+                        <td>Professional product listings and more complete template packages.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Plus</strong></td>
+                        <td>Storefront plus dashboard UI pages including analytics, orders, customers, products, and settings.</td>
+                        <td>Admin dashboard previews, SaaS demos, full premium marketplace package.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="section searchable" id="features">
+                  <h3>3. Key Features</h3>
+                  <ul class="feature-list">
+                    <li>Bootstrap 5 responsive layout</li>
+                    <li>Hero carousel and featured category blocks</li>
+                    <li>Product grid and product detail UI</li>
+                    <li>Wishlist, mini-cart, and quick view modal</li>
+                    <li>Cart and checkout flow</li>
+                    <li>Profile and contact pages</li>
+                    <li>Theme switcher and dark-mode toggle</li>
+                    <li>Animation support with AOS</li>
+                    <li>Dashboard UI in Plus version</li>
+                    <li>Clean HTML structure for backend integration</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="design-system">
+                  <h3>4. Design System</h3>
+
+                  <h4>Typography</h4>
+                  <span class="badge-soft">Font: Inter</span>
+                  <span class="badge-soft">Headings: 700–800</span>
+                  <span class="badge-soft">Body: 400–500</span>
+
+                  <h4>Spacing Scale</h4>
+                  <span class="badge-soft">4px</span>
+                  <span class="badge-soft">8px</span>
+                  <span class="badge-soft">16px</span>
+                  <span class="badge-soft">24px</span>
+                  <span class="badge-soft">32px</span>
+                  <span class="badge-soft">48px</span>
+
+                  <h4>Color Palette</h4>
+                  <div class="grid-2">
+                    <div class="info-box">
+                      <strong>Primary</strong>
+                      <p class="mb-0">#2c7be0 — main actions and links</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Secondary</strong>
+                      <p class="mb-0">#0f172a — headings, footer, dashboard areas</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Success</strong>
+                      <p class="mb-0">#16a34a — confirmations and positive states</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Warning / Danger</strong>
+                      <p class="mb-0">#f59e0b / #dc2626 — notices and destructive actions</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="components">
+                  <h3>5. Component Inventory</h3>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Top Utility Bar</td>
+                        <td>Secondary actions such as help, cart shortcut, language indicator, and theme toggle.</td>
+                      </tr>
+                      <tr>
+                        <td>Main Navbar</td>
+                        <td>Brand, search, account menu, wishlist, and cart access.</td>
+                      </tr>
+                      <tr>
+                        <td>Hero Carousel</td>
+                        <td>Promotional banners and main seasonal campaigns.</td>
+                      </tr>
+                      <tr>
+                        <td>Category Navigation</td>
+                        <td>Fast discovery across departments and product groups.</td>
+                      </tr>
+                      <tr>
+                        <td>Product Card</td>
+                        <td>Shows product image, category, title, price, rating, and CTA.</td>
+                      </tr>
+                      <tr>
+                        <td>Mini Cart</td>
+                        <td>Quick purchase summary and shortcut to cart/checkout.</td>
+                      </tr>
+                      <tr>
+                        <td>Quick View Modal</td>
+                        <td>Fast product preview without leaving the page.</td>
+                      </tr>
+                      <tr>
+                        <td>Checkout Form</td>
+                        <td>Collects user data and guides purchase flow.</td>
+                      </tr>
+                      <tr>
+                        <td>Dashboard Tables</td>
+                        <td>Used in analytics, customer management, orders, and settings pages.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="section searchable" id="structure">
+                  <h3>6. File Structure</h3>
+                  <div class="note">
+                    Keep your package clean. Remove internal development folders before selling.
+                  </div>
+
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>premiumshop/
+├── standard/
+├── professional/
+├── plus/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── vendor/
+├── documentation/
+│   └── index.html
+├── README.md
+├── CHANGELOG.txt
+├── LICENSE.txt
+└── ATTRIBUTION.txt</code></pre>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="installation">
+                  <h3>7. Installation</h3>
+                  <p>PremiumShop is a static HTML template, so no build pipeline is required for preview.</p>
+
+                  <h4>Quick Preview</h4>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>index.html</code></pre>
+                  </div>
+
+                  <h4>Run with Local Server</h4>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>python -m http.server</code></pre>
+                  </div>
+
+                  <h4>Dependencies Used</h4>
+                  <ul class="check-list">
+                    <li>Bootstrap 5</li>
+                    <li>Font Awesome</li>
+                    <li>Google Fonts (Inter)</li>
+                    <li>jQuery</li>
+                    <li>AOS Animation Library</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="customization">
+                  <h3>8. Customization Guide</h3>
+
+                  <h4>Colors and Theme</h4>
+                  <p>Edit your primary variables inside the main stylesheet.</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>:root {
+  --primary: #2c7be0;
+  --secondary: #0f172a;
+}</code></pre>
+                  </div>
+
+                  <h4>Typography</h4>
+                  <p>Change the font stack in the document head and CSS.</p>
+
+                  <h4>Images</h4>
+                  <p>Replace demo images inside:</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>assets/images/</code></pre>
+                  </div>
+
+                  <h4>Icons</h4>
+                  <p>Icons use Font Awesome classes such as:</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>&lt;i class="fas fa-shopping-cart"&gt;&lt;/i&gt;</code></pre>
+                  </div>
+
+                  <h4>Backend Integration</h4>
+                  <p>
+                    This template can be connected to Django, Laravel, Flask, Node.js, Express, or plain PHP.
+                    Replace static content with template variables from your backend.
+                  </p>
+
+                  <div class="warn">
+                    For production use, replace static demo content, placeholder products, and contact data with real data.
+                  </div>
+                </section>
+
+                <section class="section searchable" id="testing">
+                  <h3>9. Testing Checklist</h3>
+                  <ul class="check-list">
+                    <li>Check layout in Chrome, Firefox, Edge, and Safari</li>
+                    <li>Verify mobile, tablet, and desktop breakpoints</li>
+                    <li>Test all navigation links and dropdowns</li>
+                    <li>Validate modal interactions and cart shortcuts</li>
+                    <li>Verify image loading, alt text, and contrast</li>
+                    <li>Review forms and checkout page spacing</li>
+                    <li>Test dark mode and theme switcher behavior</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="deployment">
+                  <h3>10. Deployment</h3>
+                  <p>PremiumShop can be deployed to any static hosting platform.</p>
+
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Platform</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Netlify</td>
+                        <td>Fast static deployment and preview links.</td>
+                      </tr>
+                      <tr>
+                        <td>Vercel</td>
+                        <td>Useful for frontend demos and documentation previews.</td>
+                      </tr>
+                      <tr>
+                        <td>GitHub Pages</td>
+                        <td>Simple for public demo hosting.</td>
+                      </tr>
+                      <tr>
+                        <td>Cloudflare Pages</td>
+                        <td>Good performance and caching worldwide.</td>
+                      </tr>
+                      <tr>
+                        <td>AWS S3</td>
+                        <td>Flexible if you manage infrastructure manually.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h4>Optimization Tips</h4>
+                  <ul class="check-list">
+                    <li>Compress images and convert large assets to WebP</li>
+                    <li>Minify CSS and JavaScript for production</li>
+                    <li>Use a CDN for third-party libraries where appropriate</li>
+                    <li>Keep file names consistent and SEO-friendly</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="license">
+                  <h3>11. License</h3>
+                  <p>PremiumShop ships with the MIT License. Include <code>LICENSE.txt</code> in the final package and keep attribution details in <code>ATTRIBUTION.txt</code>.</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>Template: PremiumShop
+Author: orlandofv
+License: MIT</code></pre>
+                  </div>
+                </section>
+
+                <div class="footer-note">
+                  PremiumShop Documentation — English version. Keep this page updated when you add new variants, pages, or major UI changes.
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab-pt" role="tabpanel" aria-labelledby="pt-tab">
+
+                <section class="section searchable" id="overview-pt">
+                  <h3>1. Visão Geral</h3>
+                  <p>
+                    PremiumShop é um template HTML responsivo de e-commerce criado para lojas online, catálogos modernos de produtos
+                    e vitrines comerciais. Combina uma interface limpa de compras com páginas reutilizáveis e ecrãs opcionais de dashboard.
+                  </p>
+                  <div class="grid-2">
+                    <div class="info-box">
+                      <strong>Objetivo principal</strong>
+                      <p class="mb-0">Lançar rapidamente uma loja moderna com uma experiência visual profissional.</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Ideal para</strong>
+                      <p class="mb-0">Venda de templates HTML, UI kits, demos de startups, frentes SaaS e integração com backends.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="variants-pt">
+                  <h3>2. Versões</h3>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Versão</th>
+                        <th>Descrição</th>
+                        <th>Uso recomendado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Standard</strong></td>
+                        <td>Páginas principais da loja para casos simples de e-commerce.</td>
+                        <td>Lojas pequenas, lançamentos rápidos e demos iniciais.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Professional</strong></td>
+                        <td>Loja expandida com páginas utilitárias adicionais como 403, 404 e 500.</td>
+                        <td>Listagens mais profissionais e pacotes de template mais completos.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Plus</strong></td>
+                        <td>Loja mais páginas de dashboard com analytics, orders, customers, products e settings.</td>
+                        <td>Demos com painel administrativo e pacote premium completo.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="section searchable" id="features-pt">
+                  <h3>3. Funcionalidades Principais</h3>
+                  <ul class="feature-list">
+                    <li>Layout responsivo com Bootstrap 5</li>
+                    <li>Hero carousel e blocos de categorias em destaque</li>
+                    <li>Grade de produtos e interface de detalhes do produto</li>
+                    <li>Wishlist, mini-carrinho e modal de visualização rápida</li>
+                    <li>Fluxo de carrinho e checkout</li>
+                    <li>Páginas de perfil e contacto</li>
+                    <li>Alternador de tema e modo escuro</li>
+                    <li>Animações com AOS</li>
+                    <li>Dashboard administrativo na versão Plus</li>
+                    <li>Estrutura HTML limpa para integração com backend</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="design-system-pt">
+                  <h3>4. Sistema de Design</h3>
+
+                  <h4>Tipografia</h4>
+                  <span class="badge-soft">Fonte: Inter</span>
+                  <span class="badge-soft">Títulos: 700–800</span>
+                  <span class="badge-soft">Texto: 400–500</span>
+
+                  <h4>Escala de Espaçamento</h4>
+                  <span class="badge-soft">4px</span>
+                  <span class="badge-soft">8px</span>
+                  <span class="badge-soft">16px</span>
+                  <span class="badge-soft">24px</span>
+                  <span class="badge-soft">32px</span>
+                  <span class="badge-soft">48px</span>
+
+                  <h4>Paleta de Cores</h4>
+                  <div class="grid-2">
+                    <div class="info-box">
+                      <strong>Primária</strong>
+                      <p class="mb-0">#2c7be0 — ações principais e links</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Secundária</strong>
+                      <p class="mb-0">#0f172a — títulos, footer e áreas do dashboard</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Sucesso</strong>
+                      <p class="mb-0">#16a34a — confirmações e estados positivos</p>
+                    </div>
+                    <div class="info-box">
+                      <strong>Aviso / Perigo</strong>
+                      <p class="mb-0">#f59e0b / #dc2626 — alertas e ações destrutivas</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="components-pt">
+                  <h3>5. Inventário de Componentes</h3>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Componente</th>
+                        <th>Objetivo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Barra utilitária superior</td>
+                        <td>Ações secundárias como ajuda, atalho do carrinho, idioma e alternador de tema.</td>
+                      </tr>
+                      <tr>
+                        <td>Navbar principal</td>
+                        <td>Marca, pesquisa, menu de conta, wishlist e acesso ao carrinho.</td>
+                      </tr>
+                      <tr>
+                        <td>Hero Carousel</td>
+                        <td>Banners promocionais e campanhas principais.</td>
+                      </tr>
+                      <tr>
+                        <td>Navegação por categorias</td>
+                        <td>Descoberta rápida entre departamentos e grupos de produtos.</td>
+                      </tr>
+                      <tr>
+                        <td>Cartão de produto</td>
+                        <td>Mostra imagem, categoria, título, preço, classificação e CTA.</td>
+                      </tr>
+                      <tr>
+                        <td>Mini carrinho</td>
+                        <td>Resumo rápido da compra e atalho para carrinho/checkout.</td>
+                      </tr>
+                      <tr>
+                        <td>Modal de visualização rápida</td>
+                        <td>Pré-visualização do produto sem sair da página.</td>
+                      </tr>
+                      <tr>
+                        <td>Formulário de checkout</td>
+                        <td>Recolhe dados do utilizador e guia o fluxo de compra.</td>
+                      </tr>
+                      <tr>
+                        <td>Tabelas do dashboard</td>
+                        <td>Usadas em analytics, gestão de clientes, encomendas e definições.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="section searchable" id="structure-pt">
+                  <h3>6. Estrutura de Arquivos</h3>
+                  <div class="note">
+                    Mantenha o pacote limpo. Remova pastas internas de desenvolvimento antes de vender.
+                  </div>
+
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>premiumshop/
+├── standard/
+├── professional/
+├── plus/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── vendor/
+├── documentation/
+│   └── index.html
+├── README.md
+├── CHANGELOG.txt
+├── LICENSE.txt
+└── ATTRIBUTION.txt</code></pre>
+                  </div>
+                </section>
+
+                <section class="section searchable" id="installation-pt">
+                  <h3>7. Instalação</h3>
+                  <p>PremiumShop é um template HTML estático, portanto não exige build para pré-visualização.</p>
+
+                  <h4>Pré-visualização rápida</h4>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>index.html</code></pre>
+                  </div>
+
+                  <h4>Executar com servidor local</h4>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>python -m http.server</code></pre>
+                  </div>
+
+                  <h4>Dependências usadas</h4>
+                  <ul class="check-list">
+                    <li>Bootstrap 5</li>
+                    <li>Font Awesome</li>
+                    <li>Google Fonts (Inter)</li>
+                    <li>jQuery</li>
+                    <li>AOS Animation Library</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="customization-pt">
+                  <h3>8. Guia de Customização</h3>
+
+                  <h4>Cores e tema</h4>
+                  <p>Edite as variáveis principais dentro da folha de estilos.</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>:root {
+  --primary: #2c7be0;
+  --secondary: #0f172a;
+}</code></pre>
+                  </div>
+
+                  <h4>Tipografia</h4>
+                  <p>Altere a família tipográfica no head do documento e no CSS.</p>
+
+                  <h4>Imagens</h4>
+                  <p>Substitua as imagens de demonstração em:</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>assets/images/</code></pre>
+                  </div>
+
+                  <h4>Ícones</h4>
+                  <p>Os ícones usam classes do Font Awesome, por exemplo:</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>&lt;i class="fas fa-shopping-cart"&gt;&lt;/i&gt;</code></pre>
+                  </div>
+
+                  <h4>Integração com backend</h4>
+                  <p>
+                    Este template pode ser ligado ao Django, Laravel, Flask, Node.js, Express ou PHP simples.
+                    Substitua o conteúdo estático por variáveis do seu backend.
+                  </p>
+
+                  <div class="warn">
+                    Para produção, substitua conteúdo de demonstração, produtos fictícios e contactos de exemplo por dados reais.
+                  </div>
+                </section>
+
+                <section class="section searchable" id="testing-pt">
+                  <h3>9. Checklist de Testes</h3>
+                  <ul class="check-list">
+                    <li>Verificar o layout em Chrome, Firefox, Edge e Safari</li>
+                    <li>Testar breakpoints para mobile, tablet e desktop</li>
+                    <li>Validar links, dropdowns e navegação geral</li>
+                    <li>Confirmar o funcionamento do modal e atalhos do carrinho</li>
+                    <li>Verificar carregamento de imagens, alt text e contraste</li>
+                    <li>Rever formulários e espaçamentos do checkout</li>
+                    <li>Testar modo escuro e alternador de tema</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="deployment-pt">
+                  <h3>10. Publicação</h3>
+                  <p>PremiumShop pode ser publicado em qualquer plataforma de hospedagem estática.</p>
+
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>Plataforma</th>
+                        <th>Notas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Netlify</td>
+                        <td>Publicação rápida com links de preview.</td>
+                      </tr>
+                      <tr>
+                        <td>Vercel</td>
+                        <td>Útil para demos frontend e pré-visualizações da documentação.</td>
+                      </tr>
+                      <tr>
+                        <td>GitHub Pages</td>
+                        <td>Simples para hospedar demos públicas.</td>
+                      </tr>
+                      <tr>
+                        <td>Cloudflare Pages</td>
+                        <td>Boa performance e cache global.</td>
+                      </tr>
+                      <tr>
+                        <td>AWS S3</td>
+                        <td>Flexível para quem gere infraestrutura manualmente.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h4>Dicas de otimização</h4>
+                  <ul class="check-list">
+                    <li>Comprima imagens e use WebP quando possível</li>
+                    <li>Minifique CSS e JavaScript para produção</li>
+                    <li>Use CDN para bibliotecas externas quando necessário</li>
+                    <li>Mantenha nomes de ficheiros consistentes e amigáveis para SEO</li>
+                  </ul>
+                </section>
+
+                <section class="section searchable" id="license-pt">
+                  <h3>11. Licença</h3>
+                  <p>PremiumShop acompanha a licença MIT. Inclua <code>LICENSE.txt</code> no pacote final e mantenha os detalhes em <code>ATTRIBUTION.txt</code>.</p>
+                  <div class="code-block">
+                    <pre><button class="copy-btn" type="button">Copy</button><code>Template: PremiumShop
+Author: orlandofv
+License: MIT</code></pre>
+                  </div>
+                </section>
+
+                <div class="footer-note">
+                  Documentação PremiumShop — versão em Português. Atualize esta página sempre que adicionar novas páginas, variantes ou componentes.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const code = btn.parentElement.querySelector('code').innerText;
+        navigator.clipboard.writeText(code).then(function(){
+          const oldText = btn.innerText;
+          btn.innerText = 'Copied';
+          setTimeout(function(){
+            btn.innerText = oldText;
+          }, 1200);
+        });
+      });
+    });
+
+    const searchInput = document.getElementById('docSearch');
+    const searchableSections = document.querySelectorAll('.searchable');
+
+    searchInput.addEventListener('input', function(){
+      const q = this.value.toLowerCase().trim();
+
+      searchableSections.forEach(function(section){
+        const text = section.innerText.toLowerCase();
+        if (!q || text.includes(q)) {
+          section.classList.remove('hidden-search');
+        } else {
+          section.classList.add('hidden-search');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+﻿<!--
+PremiumShop - eCommerce HTML Template
+Author: orlandofv
+Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PremiumShop – a responsive, modern e-commerce UI template for online stores.">
+    <meta name="keywords" content="ecommerce, online shop, premium template, bootstrap, responsive">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2c7be0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PremiumShop">
+    <meta property="og:description" content="PremiumShop – responsive e-commerce HTML template with modern UI components.">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@PremiumShop">
+    <meta name="twitter:title" content="PremiumShop">
+    <meta name="twitter:description" content="PremiumShop – responsive e-commerce HTML template with modern UI components.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PremiumShop â€“ Home</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-logo">PremiumShop</div>
+        </div>
+    </div>
+
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar bg-light py-1 small">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <select name="language" class="form-select form-select-sm" style="width: auto;">
+                        <option value="en" >
+                            Inglês
+                        </option>
+                        <option value="pt" selected>
+                            Português
+                        </option>
+                </select>
+            </div>
+            <div class="d-flex gap-3">
+                <a href="cart.html" class="text-decoration-none"><i class="fas fa-box"></i> Cart</a>
+                <a href="#" class="text-decoration-none"><i class="fas fa-headset"></i> Help</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PremiumShop</a>
+
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="btn btn-link d-lg-none me-2" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="wishlist.html" class="btn btn-link position-relative me-2">
+                    <i class="far fa-heart fs-5"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge">3</span>
+                </a>
+                <div class="dropdown d-inline-block">
+                    <a href="#" class="btn btn-link position-relative" id="cartDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <i class="fas fa-shopping-cart fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary cart-badge">2</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end p-3 mini-cart-dropdown" aria-labelledby="cartDropdown">
+                        <div class="mini-cart-items">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="assets/images/product-headphones.png" width="50" height="50" class="me-2 rounded" alt="Product">
+                                <div>
+                                    <p class="mb-0 small fw-bold">Wireless Headphones</p>
+                                    <small>1 x $59.99</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="assets/images/product-shirt.png" width="50" height="50" class="me-2 rounded" alt="Product">
+                                <div>
+                                    <p class="mb-0 small fw-bold">Men's Casual Shirt</p>
+                                    <small>1 x $29.99</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mini-cart-footer mt-2">
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Subtotal:</span>
+                                <span>$89.98</span>
+                            </div>
+                            <div class="d-grid gap-2 mt-2">
+                                <a href="cart.html" class="btn btn-outline-primary btn-sm">View Cart</a>
+                                <a href="#" class="btn btn-primary btn-sm">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-2" id="mainNavbarContent">
+                <form class="mx-auto w-50 d-none d-lg-flex search-form" action="#" method="get">
+                    <div class="input-group">
+                        <select class="form-select" style="max-width: 150px;">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Search for products, brands, or categories">
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="far fa-user-circle fs-5"></i>
+                            <span class="d-none d-lg-inline">Account</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="cart.html">Cart</a></li>
+                            <li><a class="dropdown-item" href="wishlist.html">Wishlist</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="collapse w-100 mt-2 d-lg-none" id="mobileSearch">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <div class="container">
+            <ul class="nav justify-content-center flex-nowrap overflow-auto py-2">
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Electronics</a>
+                    <div class="dropdown-menu w-100 mt-0 p-4 rounded-0 border-0">
+                        <div class="row">
+                            <div class="col-md-3"><h6>Computers</h6><ul class="list-unstyled"><li><a href="#">Laptops</a></li><li><a href="#">Desktops</a></li></ul></div>
+                            <div class="col-md-3"><h6>Phones</h6><ul class="list-unstyled"><li><a href="#">Smartphones</a></li><li><a href="#">Accessories</a></li></ul></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Fashion</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Groceries</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">All Categories <i class="fas fa-arrow-right ms-1"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Carousel -->
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/hero1.png" class="d-block w-100" alt="Summer Sale">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Summer Sale</h3>
+                        <p>Up to 50% off on selected items.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/hero2.png" class="d-block w-100" alt="New Arrivals">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>New Arrivals</h3>
+                        <p>Discover the latest trends.</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/hero3.png" class="d-block w-100" alt="Free Shipping">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Free Shipping</h3>
+                        <p>On orders over $200.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Featured Categories -->
+        <section class="featured-categories py-5">
+            <div class="container">
+                <h2 class="text-center">Shop by Category</h2>
+                <div class="row g-4">
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-electronics.png" alt="Electronics">
+                            <h5>Electronics</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-fashion.png" alt="Fashion">
+                            <h5>Fashion</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-home.png" alt="Home">
+                            <h5>Home</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-sports.png" alt="Sports">
+                            <h5>Sports</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-electronics.png" alt="Books">
+                            <h5>Books</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="category-card">
+                            <img src="assets/images/category-fashion.png" alt="Toys">
+                            <h5>Toys</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center">Featured Products</h2>
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/product-headphones.png" alt="Wireless Headphones">
+                                <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category">Electronics</div>
+                                <h5 class="product-title">Wireless Headphones</h5>
+                                <div class="product-price">$59.99</div>
+                                <div class="star-rating" data-rating="4.5">
+                                    <div class="stars-outer">
+                                        <div class="stars-inner" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="rating-value ms-2">(4.5)</span>
+                                </div>
+                                <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/product-shirt.png" alt="Men's Casual Shirt">
+                                <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category">Fashion</div>
+                                <h5 class="product-title">Men's Casual Shirt</h5>
+                                <div class="product-price">$29.99</div>
+                                <div class="star-rating" data-rating="4.5">
+                                    <div class="stars-outer">
+                                        <div class="stars-inner" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="rating-value ms-2">(4.5)</span>
+                                </div>
+                                <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/product-coffee-maker.png" alt="Coffee Maker">
+                                <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category">Home</div>
+                                <h5 class="product-title">Coffee Maker</h5>
+                                <div class="product-price">$89.99</div>
+                                <div class="star-rating" data-rating="4.5">
+                                    <div class="stars-outer">
+                                        <div class="stars-inner" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="rating-value ms-2">(4.5)</span>
+                                </div> 
+                                <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="assets/images/product-yoga-mat.png" alt="Yoga Mat">
+                                <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category">Sports</div>
+                                <h5 class="product-title">Yoga Mat</h5>
+                                <div class="product-price">$19.99</div>
+                                <div class="star-rating" data-rating="4.5">
+                                    <div class="stars-outer">
+                                        <div class="stars-inner" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="rating-value ms-2">(4.5)</span>
+                                </div>
+                                <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promotional Banner -->
+        <section class="promo-banner py-5">
+            <div class="container">
+                <div class="row align-items-center text-white p-5 rounded" style="background: linear-gradient(135deg, var(--secondary), var(--primary));">
+                    <div class="col-lg-8">
+                        <h2 class="display-5 fw-bold mb-3">Summer Sale â€“ Up to 50% Off</h2>
+                        <p class="lead mb-4">Limited time offer on selected items. Don't miss out!</p>
+                        <a href="#" class="btn btn-light btn-lg">Shop the Sale</a>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <i class="fas fa-tags fa-5x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals / Best Sellers Tabs -->
+        <section class="new-arrivals py-5">
+            <div class="container">
+                <ul class="nav nav-tabs justify-content-center mb-4" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab">New Arrivals</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="bestsellers-tab" data-bs-toggle="tab" data-bs-target="#bestsellers" type="button" role="tab">Best Sellers</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="productTabsContent">
+                    <!-- New Arrivals Tab -->
+                    <div class="tab-pane fade show active" id="new" role="tabpanel">
+                        <div class="row g-4">
+                            <!-- Product 1 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-headphones.png" alt="Wireless Headphones">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Electronics</div>
+                                        <h5 class="product-title">Wireless Headphones</h5>
+                                        <div class="product-price">$59.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 2 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-shirt.png" alt="Men's Casual Shirt">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Fashion</div>
+                                        <h5 class="product-title">Men's Casual Shirt</h5>
+                                        <div class="product-price">$29.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>                                        
+                                    <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 3 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-coffee-maker.png" alt="Coffee Maker">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Home</div>
+                                        <h5 class="product-title">Coffee Maker</h5>
+                                        <div class="product-price">$89.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 4 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-yoga-mat.png" alt="Yoga Mat">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Sports</div>
+                                        <h5 class="product-title">Yoga Mat</h5>
+                                        <div class="product-price">$19.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Best Sellers Tab -->
+                    <div class="tab-pane fade" id="bestsellers" role="tabpanel">
+                        <div class="row g-4">
+                            <!-- Best Seller 1 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-headphones.png" alt="Wireless Headphones">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Electronics</div>
+                                        <h5 class="product-title">Wireless Headphones</h5>
+                                        <div class="product-price">$59.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Best Seller 2 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-shirt.png" alt="Men's Casual Shirt">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Fashion</div>
+                                        <h5 class="product-title">Men's Casual Shirt</h5>
+                                        <div class="product-price">$29.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Best Seller 3 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-coffee-maker.png" alt="Coffee Maker">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Home</div>
+                                        <h5 class="product-title">Coffee Maker</h5>
+                                        <div class="product-price">$89.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Best Seller 4 -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="product-card">
+                                    <div class="product-image-wrapper">
+                                        <img src="assets/images/product-yoga-mat.png" alt="Yoga Mat">
+                                        <button class="product-wishlist"><i class="far fa-heart"></i></button>
+                                        <button class="quick-view-btn" title="Quick view"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-category">Sports</div>
+                                        <h5 class="product-title">Yoga Mat</h5>
+                                        <div class="product-price">$19.99</div>
+                                        <div class="star-rating" data-rating="4.5">
+                                            <div class="stars-outer">
+                                                <div class="stars-inner" style="width: 90%;"></div>
+                                            </div>
+                                            <span class="rating-value ms-2">(4.5)</span>
+                                        </div>
+                                        <a href="product-details.html" class="btn btn-outline-primary w-100">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h3 class="mb-3">Subscribe to Our Newsletter</h3>
+                        <p class="mb-4">Get the latest deals, new arrivals, and exclusive offers straight to your inbox.</p>
+                        <form class="row g-2 justify-content-center">
+                            <div class="col-sm-8 col-md-6">
+                                <input type="email" class="form-control form-control-lg" placeholder="Your email address" required>
+                            </div>
+                            <div class="col-sm-4 col-md-3">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase mb-4">PremiumShop</h5>
+                    <p class="small">Your premium destination for quality products. We offer a curated selection with fast delivery and exceptional customer service.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Shop</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase mb-4">Customer Service</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Shipping</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Returns</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6 class="text-uppercase mb-4">Newsletter</h6>
+                    <p class="small">Subscribe to get special offers, free giveaways, and exclusive deals.</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                    <div class="mt-3">
+                        <p class="small mb-0"><i class="fas fa-phone-alt me-2"></i>+1 84 123 4567</p>
+                        <p class="small"><i class="fas fa-envelope me-2"></i>support@premiumshop.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center border-top pt-3">
+                    <p class="small mb-0">
+                        &copy; 2026 PremiumShop. All rights reserved.
+                        <a href="#" class="text-white-50 text-decoration-none ms-3">Terms of Use</a>
+                        <a href="#" class="text-white-50 text-decoration-none ms-3">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="" id="quickViewImage" class="img-fluid rounded" alt="Product">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 id="quickViewTitle">Product Title</h3>
+                            <p class="text-muted" id="quickViewCategory">Category</p>
+                            <div class="mb-3">
+                                <span class="h3" id="quickViewPrice">$0.00</span>
+                                <span class="text-muted text-decoration-line-through ms-2" id="quickViewOldPrice"></span>
+                            </div>
+                            <div class="mb-3" id="quickViewRating">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                                <span class="ms-2">(128 reviews)</span>
+                            </div>
+                            <p id="quickViewDescription">Product description goes here.</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <label for="quickViewQty" class="me-2">Qty:</label>
+                                    <input type="number" id="quickViewQty" class="form-control quantity-input" value="1" min="1" style="width:80px;">
+                                </div>
+                                <button class="btn btn-primary add-to-cart-sim"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                                <button class="btn btn-outline-danger product-wishlist"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="product_details.html" id="quickViewDetailsLink" class="btn btn-outline-secondary">View Full Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

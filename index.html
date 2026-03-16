@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PremiumShop – Premium E-Commerce HTML Template</title>
+  <meta name="description" content="PremiumShop is a modern responsive e-commerce HTML template with Standard, Professional, and Plus demo versions." />
+  <meta name="keywords" content="ecommerce html template, premium shop template, bootstrap ecommerce, admin dashboard template" />
+  <meta name="theme-color" content="#2c7be0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --primary:#2c7be0;
+      --primary-dark:#1d4ed8;
+      --secondary:#0f172a;
+      --muted:#64748b;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --success:#16a34a;
+      --warning:#f59e0b;
+      --shadow:0 14px 40px rgba(15, 23, 42, 0.10);
+      --radius:22px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:#0f172a;
+      background:
+        radial-gradient(circle at top left, rgba(44,123,224,.10), transparent 22%),
+        radial-gradient(circle at top right, rgba(96,165,250,.14), transparent 20%),
+        var(--bg);
+      line-height:1.65;
+    }
+
+    .navbar{
+      backdrop-filter: blur(10px);
+      background:rgba(255,255,255,.88);
+      border-bottom:1px solid rgba(226,232,240,.8);
+    }
+
+    .navbar-brand{
+      font-weight:800;
+      letter-spacing:-0.03em;
+      color:var(--secondary);
+    }
+
+    .navbar-brand span{
+      color:var(--primary);
+    }
+
+    .nav-link{
+      font-weight:600;
+      color:#334155 !important;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      border-color:var(--primary);
+      border-radius:14px;
+      font-weight:700;
+      padding:.85rem 1.2rem;
+    }
+
+    .btn-primary:hover{
+      background:var(--primary-dark);
+      border-color:var(--primary-dark);
+    }
+
+    .btn-outline-dark,
+    .btn-outline-primary{
+      border-radius:14px;
+      font-weight:700;
+      padding:.85rem 1.2rem;
+    }
+
+    .hero{
+      padding:110px 0 70px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .badge-soft{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#eff6ff;
+      color:var(--primary-dark);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.3rem, 6vw, 4.6rem);
+      line-height:1.02;
+      font-weight:800;
+      letter-spacing:-0.05em;
+      margin-bottom:18px;
+      max-width:760px;
+    }
+
+    .hero p{
+      color:#475569;
+      font-size:1.08rem;
+      max-width:720px;
+      margin-bottom:28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .hero-meta span{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 12px;
+      color:#334155;
+      font-weight:600;
+      font-size:.9rem;
+    }
+
+    .hero-preview{
+      position:relative;
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .browser-top{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .browser-top span{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      display:inline-block;
+    }
+
+    .hero-panel{
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+
+    .hero-panel-head{
+      background:#0f172a;
+      color:#fff;
+      padding:12px 16px;
+      font-size:.9rem;
+      font-weight:600;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .hero-panel-body{
+      padding:20px;
+      background:
+        linear-gradient(135deg, rgba(44,123,224,.08), rgba(96,165,250,.02));
+    }
+
+    .mock-banner{
+      background:linear-gradient(135deg, #2c7be0, #60a5fa);
+      color:white;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:16px;
+    }
+
+    .mock-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    .mock-card{
+      background:#fff;
+      border-radius:16px;
+      padding:12px;
+      border:1px solid #dbeafe;
+      min-height:120px;
+    }
+
+    .mock-thumb{
+      height:68px;
+      border-radius:12px;
+      background:linear-gradient(135deg, #dbeafe, #eff6ff);
+      margin-bottom:10px;
+    }
+
+    .section{
+      padding:80px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title .eyebrow{
+      display:inline-block;
+      background:#eff6ff;
+      color:var(--primary-dark);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.8rem;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .section-title h2{
+      font-size:clamp(1.8rem, 4vw, 3rem);
+      font-weight:800;
+      letter-spacing:-0.04em;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#64748b;
+      max-width:720px;
+      margin:0 auto;
+    }
+
+    .demo-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      height:100%;
+      transition:.25s ease;
+      position:relative;
+    }
+
+    .demo-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 44px rgba(15,23,42,.14);
+    }
+
+    .demo-cover{
+      padding:18px;
+      background:linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+      border-bottom:1px solid var(--border);
+    }
+
+    .demo-window{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--border);
+    }
+
+    .demo-window-top{
+      background:#0f172a;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    .demo-window-top span{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      display:inline-block;
+    }
+
+    .demo-window-body{
+      padding:16px;
+    }
+
+    .demo-ribbon{
+      position:absolute;
+      top:18px;
+      right:18px;
+      z-index:2;
+      background:#fff;
+      color:#0f172a;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+      padding:7px 10px;
+      box-shadow:0 10px 20px rgba(15,23,42,.08);
+    }
+
+    .preview-hero{
+      height:78px;
+      border-radius:14px;
+      background:linear-gradient(135deg, #2c7be0, #60a5fa);
+      margin-bottom:14px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .preview-hero::after{
+      content:"";
+      position:absolute;
+      right:-20px;
+      top:-20px;
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      background:rgba(255,255,255,.15);
+    }
+
+    .preview-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:10px;
+    }
+
+    .preview-grid.cols-3{
+      grid-template-columns:repeat(3, 1fr);
+    }
+
+    .preview-box{
+      height:76px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:14px;
+    }
+
+    .preview-box.tall{
+      height:110px;
+    }
+
+    .preview-box.dark{
+      background:#0f172a;
+      border-color:#0f172a;
+    }
+
+    .demo-content{
+      padding:24px;
+    }
+
+    .demo-content h3{
+      font-size:1.35rem;
+      font-weight:800;
+      margin-bottom:8px;
+      letter-spacing:-0.02em;
+    }
+
+    .demo-content p{
+      color:#64748b;
+      margin-bottom:16px;
+    }
+
+    .feature-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .feature-pills span{
+      background:#f8fafc;
+      border:1px solid var(--border);
+      color:#334155;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:.8rem;
+      font-weight:700;
+    }
+
+    .card-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .price-box{
+      margin-top:12px;
+      color:#0f172a;
+      font-weight:800;
+      font-size:.95rem;
+    }
+
+    .feature-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .feature-icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      background:#eff6ff;
+      color:var(--primary-dark);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      margin-bottom:16px;
+    }
+
+    .feature-card h4{
+      font-size:1.1rem;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .feature-card p{
+      color:#64748b;
+      margin-bottom:0;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .step-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .step-number{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:var(--primary);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      margin-bottom:16px;
+    }
+
+    .step-card h5{
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .step-card p{
+      color:#64748b;
+      margin:0;
+      font-size:.95rem;
+    }
+
+    .cta-box{
+      background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color:#fff;
+      border-radius:30px;
+      padding:42px 30px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .cta-box h2{
+      font-size:clamp(1.8rem, 4vw, 3rem);
+      font-weight:800;
+      letter-spacing:-0.04em;
+      margin-bottom:12px;
+    }
+
+    .cta-box p{
+      color:#cbd5e1;
+      max-width:760px;
+      margin:0 auto 24px;
+    }
+
+    footer{
+      padding:28px 0 36px;
+      color:#64748b;
+    }
+
+    footer a{
+      color:#334155;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    @media (max-width: 991.98px){
+      .hero{
+        padding-top:90px;
+      }
+
+      .steps{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767.98px){
+      .hero{
+        padding-top:86px;
+      }
+
+      .mock-grid,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .hero-preview{
+        margin-top:20px;
+      }
+
+      .section{
+        padding:64px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Premium<span>Shop</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#launch">Launch</a></li>
+        </ul>
+        <a href="/plus/" class="btn btn-primary">View Premium Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <span class="badge-soft">
+            <i class="fa-solid fa-bolt"></i>
+            Premium E-Commerce HTML Template
+          </span>
+
+          <h1>Launch your store with a premium front-end that looks ready to sell.</h1>
+
+          <p>
+            PremiumShop includes three polished demo versions — Standard, Professional, and Plus —
+            built for online stores, product catalogs, and dashboard-ready commerce projects.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#demos" class="btn btn-primary">
+              <i class="fa-solid fa-play me-2"></i>Explore Demos
+            </a>
+            <a href="/documentation/" class="btn btn-outline-dark">
+              <i class="fa-regular fa-file-lines me-2"></i>Documentation
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-check text-success me-2"></i>Bootstrap 5</span>
+            <span><i class="fa-solid fa-check text-success me-2"></i>Responsive UI</span>
+            <span><i class="fa-solid fa-check text-success me-2"></i>3 Demo Variants</span>
+            <span><i class="fa-solid fa-check text-success me-2"></i>Dashboard Included</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-preview">
+            <div class="browser-top">
+              <span style="background:#ef4444;"></span>
+              <span style="background:#f59e0b;"></span>
+              <span style="background:#22c55e;"></span>
+            </div>
+
+            <div class="hero-panel">
+              <div class="hero-panel-head">
+                <span>premiumshop.samtics.com</span>
+                <span>Live Preview</span>
+              </div>
+              <div class="hero-panel-body">
+                <div class="mock-banner">
+                  <h5 class="mb-2 fw-bold">Summer Campaign</h5>
+                  <div class="small">Modern shopping experience with polished storefront UI.</div>
+                </div>
+
+                <div class="mock-grid">
+                  <div class="mock-card">
+                    <div class="mock-thumb"></div>
+                    <div class="small fw-semibold">Standard Store</div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mock-thumb"></div>
+                    <div class="small fw-semibold">Professional UI</div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mock-thumb"></div>
+                    <div class="small fw-semibold">Plus Dashboard</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-4" id="demos">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Live Demo Variants</span>
+        <h2>Three premium demos, one product.</h2>
+        <p>
+          Present your template professionally with separate live previews for each package tier.
+          Buyers can instantly compare the Standard, Professional, and Plus versions.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="demo-card">
+            <div class="demo-ribbon">Starter</div>
+            <div class="demo-cover">
+              <div class="demo-window">
+                <div class="demo-window-top">
+                  <span style="background:#ef4444;"></span>
+                  <span style="background:#f59e0b;"></span>
+                  <span style="background:#22c55e;"></span>
+                </div>
+                <div class="demo-window-body">
+                  <div class="preview-hero"></div>
+                  <div class="preview-grid">
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-content">
+              <h3>Standard</h3>
+              <p>
+                The clean storefront version for simple e-commerce launches and lightweight product demos.
+              </p>
+
+              <div class="feature-pills">
+                <span>Homepage</span>
+                <span>Products</span>
+                <span>Cart</span>
+                <span>Checkout</span>
+                <span>Wishlist</span>
+              </div>
+
+              <div class="card-actions">
+                <a href="/standard/" class="btn btn-primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Live Demo
+                </a>
+                <a href="/standard/index.html" class="btn btn-outline-primary">Open Direct</a>
+              </div>
+
+              <div class="price-box">Best for starter storefront previews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="demo-card">
+            <div class="demo-ribbon">Best Value</div>
+            <div class="demo-cover">
+              <div class="demo-window">
+                <div class="demo-window-top">
+                  <span style="background:#ef4444;"></span>
+                  <span style="background:#f59e0b;"></span>
+                  <span style="background:#22c55e;"></span>
+                </div>
+                <div class="demo-window-body">
+                  <div class="preview-hero"></div>
+                  <div class="preview-grid cols-3">
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box tall"></div>
+                    <div class="preview-box tall"></div>
+                    <div class="preview-box tall"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-content">
+              <h3>Professional</h3>
+              <p>
+                An upgraded storefront package with additional pages and a more complete premium buyer experience.
+              </p>
+
+              <div class="feature-pills">
+                <span>403/404/500</span>
+                <span>Profile</span>
+                <span>Contact</span>
+                <span>About</span>
+                <span>Enhanced UI</span>
+              </div>
+
+              <div class="card-actions">
+                <a href="/professional/" class="btn btn-primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Live Demo
+                </a>
+                <a href="/professional/index.html" class="btn btn-outline-primary">Open Direct</a>
+              </div>
+
+              <div class="price-box">Best for polished marketplace listings</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="demo-card">
+            <div class="demo-ribbon">Premium</div>
+            <div class="demo-cover">
+              <div class="demo-window">
+                <div class="demo-window-top">
+                  <span style="background:#ef4444;"></span>
+                  <span style="background:#f59e0b;"></span>
+                  <span style="background:#22c55e;"></span>
+                </div>
+                <div class="demo-window-body">
+                  <div class="preview-hero"></div>
+                  <div class="preview-grid cols-3">
+                    <div class="preview-box dark"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box"></div>
+                    <div class="preview-box tall"></div>
+                    <div class="preview-box tall"></div>
+                    <div class="preview-box tall"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-content">
+              <h3>Plus</h3>
+              <p>
+                The full premium version with storefront UI and dashboard pages for analytics, products, orders, and customers.
+              </p>
+
+              <div class="feature-pills">
+                <span>Dashboard</span>
+                <span>Analytics</span>
+                <span>Orders</span>
+                <span>Customers</span>
+                <span>Settings</span>
+              </div>
+
+              <div class="card-actions">
+                <a href="/plus/" class="btn btn-primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Live Demo
+                </a>
+                <a href="/plus/index.html" class="btn btn-outline-primary">Open Direct</a>
+              </div>
+
+              <div class="price-box">Best for premium buyers and admin previews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Why Buyers Will Like It</span>
+        <h2>Designed to look valuable before they even download it.</h2>
+        <p>
+          A premium demo page improves trust, increases perceived quality, and helps buyers understand the differences between package tiers.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h4>Responsive by default</h4>
+            <p>Showcase a clean shopping experience across desktop, tablet, and mobile breakpoints.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h4>Clear package tiers</h4>
+            <p>Separate demo pages make it easier for customers to understand Standard, Professional, and Plus.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
+            <h4>Higher perceived value</h4>
+            <p>A polished landing page makes the template feel more mature and more market-ready.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+            <h4>Framework friendly</h4>
+            <p>Perfect for buyers who want to integrate the UI into Django, Laravel, Node.js, or PHP projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="launch">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Recommended Demo Structure</span>
+        <h2>How to organize your hosting.</h2>
+        <p>
+          Upload one landing page at the root, then place each template demo in its own folder.
+        </p>
+      </div>
+
+      <div class="steps mb-4">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h5>Create the subdomain</h5>
+          <p>Set up <strong>premiumshop.samtics.com</strong> in your hosting panel and point it to its own document root.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h5>Upload the folders</h5>
+          <p>Place <strong>standard</strong>, <strong>professional</strong>, and <strong>plus</strong> inside the subdomain root.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h5>Add this landing page</h5>
+          <p>Save this file as <strong>index.html</strong> in the subdomain root so buyers see the premium demo selector first.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h5>Test all paths</h5>
+          <p>Verify that CSS, JS, images, and page links work correctly in each demo folder.</p>
+        </div>
+      </div>
+
+      <div class="demo-card p-4">
+        <h4 class="fw-bold mb-3">Suggested folder structure</h4>
+        <pre class="mb-0"><code>public_html/
+└── premiumshop/
+    ├── index.html
+    ├── documentation/
+    │   └── index.html
+    ├── standard/
+    │   ├── index.html
+    │   └── assets/
+    ├── professional/
+    │   ├── index.html
+    │   └── assets/
+    └── plus/
+        ├── index.html
+        └── assets/</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to present PremiumShop like a real product?</h2>
+        <p>
+          Use the demo landing page, add your documentation, and let buyers compare every version in seconds.
+          That makes the template feel more premium and easier to trust.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="/standard/" class="btn btn-primary">View Standard</a>
+          <a href="/professional/" class="btn btn-light fw-bold rounded-3 px-4 py-2">View Professional</a>
+          <a href="/plus/" class="btn btn-outline-light fw-bold rounded-3 px-4 py-2">View Plus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-2">
+      <div>© 2026 PremiumShop. All rights reserved.</div>
+      <div class="d-flex gap-3">
+        <a href="/documentation/">Documentation</a>
+        <a href="/plus/">Premium Demo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!--
+PremiumShop - eCommerce HTML Template
+Author: orlandofv
+Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PremiumShop – a responsive, modern e-commerce UI template for online stores.">
+    <meta name="keywords" content="ecommerce, online shop, premium template, bootstrap, responsive">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2c7be0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PremiumShop">
+    <meta property="og:description" content="PremiumShop – responsive e-commerce HTML template with modern UI components.">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@PremiumShop">
+    <meta name="twitter:title" content="PremiumShop">
+    <meta name="twitter:description" content="PremiumShop – responsive e-commerce HTML template with modern UI components.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Settings â€“ PremiumShop Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div id="page-loader"><div class="loader-content"><div class="loader-spinner"></div><div class="loader-logo">PremiumShop</div></div></div>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header"><a href="index.html" class="logo">PremiumShop</a></div>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a class="nav-link" href="dashboard_products.html"><i class="fas fa-box"></i> Products</a>
+                <a class="nav-link" href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a class="nav-link" href="customers.html"><i class="fas fa-users"></i> Customers</a>
+                <a class="nav-link" href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a class="nav-link active" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <button class="btn btn-link d-lg-none" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <div class="header-search d-none d-md-flex"><input type="text" placeholder="Search..."><button><i class="fas fa-search"></i></button></div>
+                <div class="header-user">
+                    <div class="notification-badge"><i class="far fa-bell"></i><span class="badge bg-danger">3</span></div>
+                    <div class="theme-switcher me-2"><button id="themeToggle" class="btn btn-sm btn-outline-secondary"><i class="fas fa-moon"></i></button></div>
+                    <div class="user-dropdown"><img src="assets/images/avatar-placeholder.png" class="user-avatar"><span class="d-none d-md-inline">Admin</span></div>
+                </div>
+            </header>
+
+            <div class="container-fluid px-0">
+                <h1 class="h3 mb-4">Settings</h1>
+
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">General Settings</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Store Name</label>
+                                        <input type="text" class="form-control" value="PremiumShop">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Store Email</label>
+                                        <input type="email" class="form-control" value="info@premiumshop.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Currency</label>
+                                        <select class="form-select">
+                                            <option>MZN (Mozambican Metical)</option>
+                                            <option>USD (US Dollar)</option>
+                                            <option>EUR (Euro)</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Default Language</label>
+                                        <select class="form-select">
+                                            <option>Portuguese</option>
+                                            <option>English</option>
+                                            <option>French</option>
+                                        </select>
+                                    </div>
+                                    <hr>
+                                    <h5 class="card-title mb-4">Payment Methods</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="mpesa" checked>
+                                        <label class="form-check-label" for="mpesa">M-Pesa</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="emola" checked>
+                                        <label class="form-check-label" for="emola">E-mola</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="bank" checked>
+                                        <label class="form-check-label" for="bank">Bank Transfer</label>
+                                    </div>
+                                    <hr>
+                                    <h5 class="card-title mb-4">Shipping Settings</h5>
+                                    <div class="mb-3">
+                                        <label class="form-label">Free Shipping Threshold</label>
+                                        <input type="text" class="form-control" value="2000">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Standard Shipping Fee</label>
+                                        <input type="text" class="form-control" value="150">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

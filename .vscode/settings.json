@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"d:\\\\HTML TEMPLATES\\\\premiumshop\\\\premiumshop\" ; powershell -NoProfile -Command \"\\(Get-Content 'plus\\\\index\\.html' -Raw\\) -split '\\\\n' \\| Select-String '<meta charset' \\| ForEach-Object \\{ \\$_\\.Line \\}; \\(Get-Content 'plus\\\\index\\.html' -Raw\\) -split '\\\\n' \\| Select-String 'description' \\| ForEach-Object \\{ \\$_\\.Line \\}\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

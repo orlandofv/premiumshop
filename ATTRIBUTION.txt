@@ -1,0 +1,24 @@
+PremiumShop Template
+
+Author
+orlandofv
+
+License
+MIT License
+
+Libraries Used
+
+Bootstrap
+https://getbootstrap.com
+
+Font Awesome
+https://fontawesome.com
+
+Google Fonts
+https://fonts.google.com
+
+AOS Animation
+https://michalsnik.github.io/aos/
+
+jQuery
+https://jquery.com
