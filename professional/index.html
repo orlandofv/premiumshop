@@ -678,10 +678,7 @@ Version: 1.0
     <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-0">
+                <div class="modal-body p-4">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <img src="" id="quickViewImage" class="img-fluid rounded" alt="Product">
@@ -710,7 +707,10 @@ Version: 1.0
                                 <button class="btn btn-primary add-to-cart-sim"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                                 <button class="btn btn-outline-danger product-wishlist"><i class="far fa-heart"></i></button>
                             </div>
-                            <a href="product_details.html" id="quickViewDetailsLink" class="btn btn-outline-secondary">View Full Details</a>
+                            <div class="modal-action-row">
+                                <a href="product-details.html" id="quickViewDetailsLink" class="btn btn-outline-secondary">View Full Details</a>
+                                <button type="button" class="btn btn-outline-secondary modal-close-action" data-bs-dismiss="modal" onclick="bootstrap.Modal.getOrCreateInstance(document.getElementById('quickViewModal')).hide()">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
