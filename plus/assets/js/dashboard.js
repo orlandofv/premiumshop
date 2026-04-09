@@ -3,6 +3,29 @@
 (function() {
     'use strict';
 
+    function ensureStoreReturnLinks() {
+        const sidebarNav = document.querySelector('.sidebar .nav');
+        if (sidebarNav && !sidebarNav.querySelector('a[href="index.html"]')) {
+            const shopLink = document.createElement('a');
+            shopLink.className = 'nav-link';
+            shopLink.href = 'index.html';
+            shopLink.innerHTML = '<i class="fas fa-store"></i> Back to Shop';
+            sidebarNav.appendChild(shopLink);
+        }
+
+        const headerUser = document.querySelector('.dashboard-header .header-user');
+        if (headerUser && !headerUser.querySelector('[data-storefront-link]')) {
+            const shopButton = document.createElement('a');
+            shopButton.href = 'index.html';
+            shopButton.className = 'btn btn-sm btn-outline-primary d-none d-md-inline-flex align-items-center';
+            shopButton.setAttribute('data-storefront-link', 'true');
+            shopButton.innerHTML = '<i class="fas fa-store me-2"></i>View Store';
+            headerUser.prepend(shopButton);
+        }
+    }
+
+    ensureStoreReturnLinks();
+
     // Page loader (already handled by main.js, but we can add extra if needed)
 
     // Initialize DataTables

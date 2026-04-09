@@ -863,6 +863,224 @@ section h2::after {
     box-shadow: var(--shadow-lg);
 }
 
+.about-stat-card,
+.about-value-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+
+.about-stat-card {
+    padding: 1.5rem;
+}
+
+.about-stat-card .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.about-media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.about-media-card {
+    background: var(--card-bg);
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.about-media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 180px;
+}
+
+.about-value-card {
+    padding: 1.5rem;
+}
+
+.about-value-card i {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(44, 123, 224, 0.12);
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== Auth Pages ===== */
+.auth-section {
+    position: relative;
+    padding: 4rem 0 5rem;
+    background:
+        radial-gradient(circle at top right, rgba(44, 123, 224, 0.12), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(255, 94, 124, 0.12), transparent 24%),
+        var(--bg-secondary);
+}
+
+.auth-showcase,
+.auth-form-card {
+    border-radius: 28px;
+    box-shadow: var(--shadow-xl);
+    height: 100%;
+}
+
+.auth-showcase {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: white;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-showcase::after {
+    content: "";
+    position: absolute;
+    inset: auto -60px -60px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.auth-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+.auth-benefit {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.auth-benefit:first-of-type {
+    margin-top: 1.5rem;
+}
+
+.auth-benefit i {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.auth-mini-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.auth-mini-stat {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.auth-mini-stat strong {
+    display: block;
+    font-size: 1.35rem;
+}
+
+.auth-form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2.25rem;
+}
+
+.auth-form-card .form-control,
+.auth-form-card .form-select {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    color: var(--text-primary);
+    padding: 0.85rem 1rem;
+    min-height: 52px;
+}
+
+.auth-form-card .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.auth-form-card .form-control:focus,
+.auth-form-card .form-select:focus {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(44, 123, 224, 0.16);
+}
+
+.auth-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 0.85rem 1rem;
+    transition: var(--transition-base);
+}
+
+.auth-social-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.auth-links,
+.auth-links a,
+.auth-note {
+    color: var(--text-secondary);
+}
+
+.auth-links a:hover,
+.auth-note a:hover {
+    color: var(--primary);
+}
+
+.auth-trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.auth-trust-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 /* ===== Contact Page ===== */
 .contact-info {
     background: var(--bg-secondary);
@@ -1089,6 +1307,7 @@ section h2::after {
     margin-left: 1rem;
 }
 
+.theme-toggle-btn,
 #themeToggle {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -1098,10 +1317,23 @@ section h2::after {
     transition: var(--transition-base);
 }
 
+.theme-toggle-btn:hover,
 #themeToggle:hover {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
+}
+
+.theme-switcher-floating {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1055;
+    margin-left: 0;
+}
+
+.theme-switcher-floating .theme-toggle-btn {
+    box-shadow: var(--shadow-lg);
 }
 
 /* ===== Demo Theme Panel ===== */
@@ -1194,6 +1426,14 @@ footer a:hover {
     }
     .profile-sidebar {
         margin-bottom: 1rem;
+    }
+    .about-media-grid,
+    .auth-mini-stats {
+        grid-template-columns: 1fr;
+    }
+    .auth-showcase,
+    .auth-form-card {
+        padding: 1.75rem;
     }
 }
 

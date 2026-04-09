@@ -19,6 +19,172 @@
         return cookieValue;
     }
 
+    function createThemeToggleButton(extraClasses) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = ['btn', 'btn-sm', 'btn-outline-secondary', 'theme-toggle-btn', extraClasses || ''].join(' ').trim();
+        button.setAttribute('data-theme-toggle', 'true');
+        button.setAttribute('title', 'Toggle color theme');
+        button.setAttribute('aria-label', 'Toggle color theme');
+        button.innerHTML = '<i class="fas fa-moon"></i>';
+        return button;
+    }
+
+    function getThemeButtons() {
+        return Array.from(document.querySelectorAll('#themeToggle, [data-theme-toggle]'));
+    }
+
+    function updateThemeButtons(theme) {
+        getThemeButtons().forEach((button) => {
+            const icon = button.querySelector('i');
+            if (icon) {
+                icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            }
+            button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        });
+    }
+
+    function ensureThemeSwitcher() {
+        if (getThemeButtons().length) {
+            return;
+        }
+
+        const utilityGroup = document.querySelector('.top-utility-bar .container > .d-flex:first-child');
+        const dashboardHost = document.querySelector('.dashboard-header .header-user');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'theme-switcher';
+
+        if (utilityGroup) {
+            wrapper.appendChild(createThemeToggleButton());
+            utilityGroup.prepend(wrapper);
+            return;
+        }
+
+        if (dashboardHost) {
+            wrapper.classList.add('me-2');
+            wrapper.appendChild(createThemeToggleButton());
+            const userDropdown = dashboardHost.querySelector('.user-dropdown');
+            dashboardHost.insertBefore(wrapper, userDropdown || dashboardHost.firstChild);
+            return;
+        }
+
+        wrapper.classList.add('theme-switcher-floating');
+        wrapper.appendChild(createThemeToggleButton());
+        document.body.appendChild(wrapper);
+    }
+
+    function getMenuItemByText(menu, text) {
+        const label = text.toLowerCase();
+        return Array.from(menu.querySelectorAll('.dropdown-item')).find((item) => item.textContent.trim().toLowerCase() === label);
+    }
+
+    function createMenuItem(text, href) {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.className = 'dropdown-item';
+        link.href = href;
+        link.textContent = text;
+        li.appendChild(link);
+        return li;
+    }
+
+    function ensureMenuItem(menu, text, href, options) {
+        const settings = options || {};
+        const existing = getMenuItemByText(menu, text);
+        if (existing) {
+            existing.href = href;
+            return existing.closest('li');
+        }
+
+        const item = createMenuItem(text, href);
+        if (settings.beforeText) {
+            const beforeItem = getMenuItemByText(menu, settings.beforeText);
+            if (beforeItem) {
+                menu.insertBefore(item, beforeItem.closest('li'));
+                return item;
+            }
+        }
+
+        if (settings.afterText) {
+            const afterItem = getMenuItemByText(menu, settings.afterText);
+            if (afterItem) {
+                afterItem.closest('li').insertAdjacentElement('afterend', item);
+                return item;
+            }
+        }
+
+        menu.appendChild(item);
+        return item;
+    }
+
+    function ensureDashboardQuickLink() {
+        const utilityLinks = document.querySelector('.top-utility-bar .container > .d-flex:last-child');
+        if (!utilityLinks || utilityLinks.querySelector('[data-dashboard-link], a[href="dashboard.html"]')) {
+            return;
+        }
+
+        const helpLink = Array.from(utilityLinks.querySelectorAll('a')).find((link) => /help/i.test(link.textContent));
+        const dashboardLink = document.createElement('a');
+        dashboardLink.href = 'dashboard.html';
+        dashboardLink.className = 'text-decoration-none';
+        dashboardLink.setAttribute('data-dashboard-link', 'true');
+        dashboardLink.innerHTML = '<i class="fas fa-chart-pie"></i> Dashboard';
+
+        if (helpLink) {
+            utilityLinks.insertBefore(dashboardLink, helpLink);
+            return;
+        }
+
+        utilityLinks.appendChild(dashboardLink);
+    }
+
+    function enhanceSharedNavigation() {
+        const accountMenus = Array.from(document.querySelectorAll('.dropdown-menu')).filter((menu) => /wishlist|profile|login|logout/i.test(menu.textContent));
+
+        accountMenus.forEach((menu) => {
+            const profileLink = getMenuItemByText(menu, 'Profile');
+            if (profileLink) {
+                profileLink.href = 'profile.html';
+            }
+
+            const cartLink = getMenuItemByText(menu, 'Cart');
+            if (cartLink) {
+                cartLink.href = 'cart.html';
+            }
+
+            const wishlistLink = getMenuItemByText(menu, 'Wishlist');
+            if (wishlistLink) {
+                wishlistLink.href = 'wishlist.html';
+            }
+
+            const dashboardPlacement = getMenuItemByText(menu, 'Login')
+                ? { beforeText: 'Login' }
+                : getMenuItemByText(menu, 'Logout')
+                    ? { beforeText: 'Logout' }
+                    : { afterText: 'Wishlist' };
+            ensureMenuItem(menu, 'Dashboard', 'dashboard.html', dashboardPlacement);
+
+            const loginLink = getMenuItemByText(menu, 'Login');
+            if (loginLink) {
+                loginLink.href = 'login.html';
+                ensureMenuItem(menu, 'Register', 'register.html', { afterText: 'Login' });
+                ensureMenuItem(menu, 'Forgot Password', 'forgot-password.html', { afterText: 'Register' });
+            }
+        });
+
+        document.querySelectorAll('footer a').forEach((link) => {
+            const text = link.textContent.trim().toLowerCase();
+            if (text === 'about us') {
+                link.href = 'about.html';
+            }
+            if (text === 'contact') {
+                link.href = 'contact.html';
+            }
+        });
+
+        ensureDashboardQuickLink();
+    }
+
     // ===================== Page Loader =====================
     window.addEventListener('load', function() {
         const loader = document.getElementById('page-loader');
@@ -27,25 +193,25 @@
 
     // ===================== Theme Switcher (Dark Mode) =====================
     (function initTheme() {
-        const themeToggle = document.getElementById('themeToggle');
+        ensureThemeSwitcher();
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        if (themeToggle) {
-            const icon = themeToggle.querySelector('i');
-            if (icon) {
-                icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            }
-            themeToggle.addEventListener('click', () => {
-                let current = document.documentElement.getAttribute('data-theme');
-                let newTheme = current === 'light' ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                if (icon) {
-                    icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-                }
-            });
-        }
+        updateThemeButtons(savedTheme);
+
+        document.addEventListener('click', function(e) {
+            const themeToggle = e.target.closest('#themeToggle, [data-theme-toggle]');
+            if (!themeToggle) return;
+
+            let current = document.documentElement.getAttribute('data-theme');
+            let newTheme = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButtons(newTheme);
+        });
     })();
+
+    // ===================== Shared Navigation Enhancements =====================
+    enhanceSharedNavigation();
 
     // ===================== Demo Theme Panel (Primary Color Switcher) =====================
     (function initDemoTheme() {
