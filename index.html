@@ -149,6 +149,34 @@
       font-size:.9rem;
     }
 
+    .hero-support{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .hero-support a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:11px 14px;
+      color:#0f172a;
+      text-decoration:none;
+      font-weight:700;
+      transition:.2s ease;
+      box-shadow:0 10px 24px rgba(15, 23, 42, 0.07);
+    }
+
+    .hero-support a:hover{
+      color:var(--primary-dark);
+      border-color:#bfdbfe;
+      transform:translateY(-2px);
+    }
+
     .hero-preview{
       position:relative;
       background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
@@ -570,6 +598,7 @@
         <ul class="navbar-nav ms-auto me-3">
           <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
           <li class="nav-item"><a class="nav-link" href="#niches">Niches</a></li>
+          <li class="nav-item"><a class="nav-link" href="documentation/">Documentation</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         </ul>
         <a href="plus/" class="btn btn-primary">View Premium Demo</a>
@@ -608,6 +637,15 @@
             <span><i class="fa-solid fa-check text-success me-2"></i>3 Demo Variants</span>
             <span><i class="fa-solid fa-check text-success me-2"></i>4 Auth Templates</span>
             <span><i class="fa-solid fa-check text-success me-2"></i>6 Admin Pages</span>
+          </div>
+
+          <div class="hero-support">
+            <a href="mailto:geral@samtics.com">
+              <i class="fa-regular fa-envelope"></i>Support: geral@samtics.com
+            </a>
+            <a href="documentation/">
+              <i class="fa-regular fa-file-lines"></i>Open Full Documentation
+            </a>
           </div>
         </div>
 
@@ -895,6 +933,7 @@
           <a href="standard/" class="btn btn-primary">View Standard</a>
           <a href="professional/" class="btn btn-light fw-bold rounded-3 px-4 py-2">View Professional</a>
           <a href="plus/" class="btn btn-outline-light fw-bold rounded-3 px-4 py-2">View Plus</a>
+          <a href="documentation/" class="btn btn-outline-light fw-bold rounded-3 px-4 py-2">Read Documentation</a>
         </div>
       </div>
     </div>
