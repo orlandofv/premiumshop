@@ -110,4 +110,4 @@ PHP
 
 For support contact:
 
-support@samtics.com
+geral@samtics.com
